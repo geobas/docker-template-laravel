@@ -9,3 +9,16 @@ services:
       - 80:80
     volumes:
       - ./:/var/www/html
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0.26
+    container_name: mysql-laravel
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    env_file:
+      - .docker/mysql/.env.mysql
+    volumes:
+      - .docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ~/Workspaces/mysql/db:/var/lib/mysql
