@@ -11,6 +11,7 @@ services:
       - ./:/var/www/html
     depends_on:
       - mysql
+      - mongo
   mysql:
     image: mysql:8.0.26
     container_name: mysql-laravel
@@ -34,3 +35,13 @@ services:
       PMA_ARBITRARY: 1
     depends_on:
       - mysql
+  mongo:
+    image: mongo:4.4
+    container_name: mongo-laravel
+    restart: always
+    ports: 
+      - 27017:27017
+    env_file:
+      - .docker/mongo/.env.mongo
+    volumes:
+      - ~/Workspaces/mongo/db:/data/db
