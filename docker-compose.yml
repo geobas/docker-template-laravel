@@ -9,9 +9,6 @@ services:
       - 80:80
     volumes:
       - ./:/var/www/html
-    depends_on:
-      - mysql
-      - mongo
   mysql:
     image: mysql:8.0.26
     container_name: mysql-laravel
@@ -45,3 +42,13 @@ services:
       - .docker/mongo/.env.mongo
     volumes:
       - ~/Workspaces/mongo/db:/data/db
+  mongo-express:
+    image: mongo-express:0.54.0
+    container_name: mongo-express-laravel
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - .docker/mongo/.env.mongo.express
+    depends_on:
+      - mongo
