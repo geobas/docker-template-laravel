@@ -52,3 +52,14 @@ services:
       - .docker/mongo/.env.mongo.express
     depends_on:
       - mongo
+  redis:
+    image: redis:6.2.6
+    container_name: redis-laravel
+    restart: always
+    ports: 
+      - 6379:6379
+    volumes:
+      - ~/Workspaces/redis/data:/var/lib/redis
+      - .docker/redis/redis.conf:/etc/redis/redis.conf
+    env_file:
+      - .docker/redis/.env
