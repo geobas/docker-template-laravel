@@ -16,7 +16,7 @@ services:
     ports:
       - 3306:3306
     env_file:
-      - .docker/mysql/.env.mysql
+      - .docker/mysql/.env
     volumes:
       - .docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
       - ~/Workspaces/mysql/db:/var/lib/mysql
@@ -39,7 +39,7 @@ services:
     ports: 
       - 27017:27017
     env_file:
-      - .docker/mongo/.env.mongo
+      - .docker/mongo/.env
     volumes:
       - ~/Workspaces/mongo/db:/data/db
   mongo-express:
