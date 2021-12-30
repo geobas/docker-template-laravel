@@ -19,7 +19,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip \
     && docker-php-source delete \
     && pecl install mongodb \
-    && docker-php-ext-enable mongodb
+    && docker-php-ext-enable mongodb \
+    && pecl install redis \
+    && docker-php-ext-enable redis
 
 # Clear apt cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
