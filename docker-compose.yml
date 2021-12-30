@@ -63,3 +63,11 @@ services:
       - .docker/redis/redis.conf:/etc/redis/redis.conf
     env_file:
       - .docker/redis/.env
+  redisinsight:
+    image: redislabs/redisinsight:1.11.0
+    container_name: redisinsight-laravel
+    restart: always
+    ports:
+      - 8001:8001
+    depends_on:
+      - redis
