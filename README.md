@@ -20,19 +20,15 @@ Also suitable for other PHP projects, feel free to modify Docker configuration a
 ```
 git clone git@github.com:geobas/docker-template-laravel.git yourproject
 cd yourproject
+rm -rf .git
 ```
 
 2. Build and run containers:
 
 ```
-docker-compose build
-docker-compose up
-```
-
-### Running containers in the background
-
-```
-docker-compose up -d
+./start.sh app mysql phpmyadmin mongo mongo-express redis redisinsight
+docker exec -it app-laravel bash
+composer create-project --prefer-dist laravel/laravel temp && shopt -s dotglob nullglob && mv temp/* . && rmdir temp
 ```
 
 ### Stop and delete containers
@@ -41,13 +37,13 @@ docker-compose up -d
 To stop Docker containers run:
 
 ```
-docker-compose stop
+./stop.sh
 ```
 
 To delete Docker containers run:
 
 ```
-docker-compose down
+./delete.sh
 ```
 
 ### Main Endpoints
