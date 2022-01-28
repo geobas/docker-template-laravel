@@ -4,8 +4,13 @@ docker-compose up -d $1 $2 $3 $4 $5 $6 $7
 
 clear
 
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
 echo '----------------------------------------------'
-echo '--           DOCKER UP AND RUNNING          --'
+echo -e "--          ${GREEN}DOCKER UP AND RUNNING${NC}           --"
 echo '----------------------------------------------'
 
 for arg do
@@ -34,7 +39,7 @@ for arg do
 done
 
 echo '----------------------------------------------'
-echo '-    Run ./stop.sh to stop containers        -'
+echo -e "-    Run ${YELLOW}./stop.sh${NC} to stop containers        -"
 echo '----------------------------------------------'
-echo '-    Run ./delete.sh to delete containers    -'
+echo -e "-    Run ${RED}./delete.sh${NC} to delete containers    -"
 echo '----------------------------------------------'
