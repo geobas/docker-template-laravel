@@ -28,7 +28,7 @@ rm -rf .git
 ```
 ./start.sh app mysql phpmyadmin mongo mongo-express redis redisinsight
 docker exec -it app-laravel bash
-./copy.sh
+./install.sh
 ```
 
 ### Stop and delete containers
