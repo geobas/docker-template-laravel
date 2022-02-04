@@ -1,3 +1,5 @@
+![Logo](https://user-images.githubusercontent.com/1626965/152615266-02b42348-cec8-494d-b16a-2b104b34cb1d.png)
+
 # Docker template for Laravel/Lumen
 
 Could be used on Linux, OS X and Windows.
@@ -27,12 +29,15 @@ rm -rf .git
 
 ```
 ./start.sh app mysql phpmyadmin mongo mongo-express redis redisinsight
+```
+
+3. Install Laravel or Lumen:
+```
 docker exec -it app-laravel bash
 ./install.sh
 ```
 
 ### Stop and delete containers
-
 
 To stop Docker containers run:
 
